@@ -6,7 +6,6 @@ on:
   pull_request:
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
 
@@ -25,9 +24,6 @@ jobs:
           --health-timeout=5s
           --health-retries=5
 
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
     steps:
       - uses: actions/checkout@v4
 
@@ -36,8 +32,15 @@ jobs:
           node-version: 20
 
       - run: npm install
-      - run: npx prisma generate --schema=./packages/db/prisma/schema.prisma
-      - run: npx prisma migrate deploy --schema=./packages/db/prisma/schema.prisma
+
+      - run: cd packages/db && npx prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - run: cd packages/db && npx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          
       - run: npm run build
 
   docker:
