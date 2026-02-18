@@ -5,6 +5,9 @@
     "types": "src/index.ts",
     "type": "module",
     "seed": "tsx prisma/seed.ts",
+    "prisma": {
+        "schema": "prisma/schema.prisma"
+    },
     "devDependencies": {
         "@types/cors": "^2.8.19",
         "@types/express": "^5.0.6",
