@@ -24,34 +24,4 @@ services:
 
 volumes:
   postgres_data:
-
-    # services:
-    #   postgres:
-    #     image: postgres:16
-    #     restart: always
-    #     environment:
-    #       POSTGRES_USER: ${POSTGRES_USER}
-    #       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    #       POSTGRES_DB: ${POSTGRES_DB}
-    #     ports:
-    #       - "5432:5432"
-    #     volumes:
-    #       - postgres_data:/var/lib/postgresql/data
-
-    #   app:
-    #     build:
-    #       context: .
-    #       dockerfile: Dockerfile
-    #     volumes:
-    #       - ./packages/db:/usr/src/app
-    #     working_dir: /usr/src/app
-    #     command: npx tsx src/server.ts
-    #     environment:
-    #       DATABASE_URL: "postgresql://ccarre:ccarrepass@postgres:5432/ccarre_db"
-    #     depends_on:
-    #       - postgres
-    #     ports:
-    #       - "3000:3000"
-
-    # volumes:
-    #   postgres_data:
+ 
